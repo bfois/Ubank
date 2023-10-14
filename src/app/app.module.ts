@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AuthModule } from './module/auth/auth.module';
 import { DashboardModule } from './module/dashboard/dashboard.module';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { DashboardModule } from './module/dashboard/dashboard.module';
     BrowserModule,
     AppRoutingModule,
     AuthModule,
-    DashboardModule
+    DashboardModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
