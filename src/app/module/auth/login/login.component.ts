@@ -23,16 +23,12 @@ export class LoginComponent implements OnInit {
   onSubmit() {
     if (this.loginForm.valid) {
       const loginData: Login = this.loginForm.value;
-      this.authService.login(loginData).subscribe(
-        (response) => {
-          // Redireccionar a la página de dashboard si el inicio de sesión es exitoso
-          this.router.navigate(['/dashboard']); // Reemplaza '/dashboard' con la ruta de tu dashboard
-        },
-        (error) => {
-          // Manejar errores de inicio de sesión
-          console.error(error);
+      this.authService.login(loginData).subscribe({
+        next:(response) =>{
+          localStorage.setItem('currentUser', JSON.stringify(response));
+          this.router.navigate(['dashboard']);
         }
-      );
+      });
     }
   }
 }
